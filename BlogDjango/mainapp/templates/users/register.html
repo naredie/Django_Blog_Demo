@@ -1,0 +1,20 @@
+{% extends 'layouts/layout.html' %}
+
+{% block content %}
+    <h1>{{title}}</h1>
+
+        {{register_form.errors}}
+
+        <form method="post" action="">
+            {% csrf_token %}
+          
+            {% for field in register_form %}
+                {{field.label}}</br></br>
+                {{field}}</br>
+            {% endfor %}
+
+            <input name="login" id="login" class="btn btn-success btn-block login-btn mb-4" type="submit" value="Registrarse" />
+
+        </form> 
+
+{% endblock %} 

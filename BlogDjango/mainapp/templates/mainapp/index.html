@@ -1,0 +1,27 @@
+{% extends 'layouts/layout.html' %}
+
+{% block title %}
+    {{title}}
+{% endblock %}
+
+{% block content %}
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success">
+                {{message}}
+            </div>
+        {% endfor %}
+
+        <a class="btn btn-warning" href="{% url 'init_list_articles' %}">Volver a la página de inicio</a>
+
+    {% endif %}
+
+    {% if user.email %}
+        <h2>Bienvenido {{request.user.first_name}}</h2>
+        <p>{{user.email}}</p>
+    {% else %}
+        <p>Identificate para ver la información de usuario</p>
+    {% endif %}
+  
+{% endblock %}

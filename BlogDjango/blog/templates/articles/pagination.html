@@ -1,0 +1,18 @@
+<div class="pagination">
+    {% if Articles.has_previous%}
+    {% comment %} si no hay paginas antes llevanos a la pagina 1 
+    y mostamos los botones de siguiente
+    {% endcomment %}
+        <a href="?page=1">Primera</a>
+        <a href="?page={{Articles.previous_page_number}}">&laquo; Anterior</a>
+    {% endif %}
+
+    <span class="pageactual">Página {{Articles.number}} de {{Articles.paginator.num_pages}}</span>
+
+    {% if Articles.has_next%}
+    {% comment %} si existe la siguiente pagina {% endcomment %}
+        <a href="?page={{Articles.next_page_number}}">Siguiente</a>
+
+        <a href="?page={{Articles.paginator.num_pages}}">Última &raquo; </a>
+    {% endif %}
+</div>
